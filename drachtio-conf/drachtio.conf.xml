@@ -12,7 +12,9 @@
                     sip:*;transport=tcp
                     sip:*:5061
         -->
-        <contacts></contacts>
+        <contacts>
+            <contact>sip:*;transport=udp,tcp</contact>
+        </contacts>
 
         <spammers action="reject" tcp-action="discard">
             <header name="User-Agent">
