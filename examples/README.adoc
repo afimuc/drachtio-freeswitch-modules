@@ -1,4 +1,17 @@
 
+=== Starting drachtio-server
+
+[,cmd]
+----
+podman run --rm --name drachtio-server ^
+-v config\drachtio-server\drachtio.conf.xml:/etc/drachtio.conf.xml ^
+-p 9022:9022/tcp ^
+-p 5060:5060/tcp ^
+docker.io/drachtio/drachtio-server
+----
+
+Then `podman exec -ti drachtio-server /bin/bash`
+
 === Starting drachtio-freeswitch-mrf (FreeSWITCH media server)
 
 See https://github.com/drachtio/docker-drachtio-freeswitch-mrf
@@ -6,7 +19,7 @@ See https://github.com/drachtio/docker-drachtio-freeswitch-mrf
 [,cmd]
 ----
 podman run --rm --name FS1 ^
--v C:\Projects\Fastlane\drachtio\drachtio-freeswitch-modules\conf:/usr/local/freeswitch/conf ^
+-v config/freeswitch:/usr/local/freeswitch/conf ^
 -p 8021:8021/tcp ^
 -p 5038:5038/tcp ^
 -p 5039:5039/tcp ^
@@ -21,20 +34,6 @@ freeswitch ^
 
 Then connect with `podman exec -ti FS1 fs_cli` or
 `podman exec -ti FS1 /bin/bash`
-
-
-=== Starting drachtio-server
-
-[,cmd]
-----
-podman run --rm --name drachtio-server ^
--v C:\Projects\Fastlane\drachtio\drachtio-freeswitch-modules\drachtio-conf\drachtio.conf.xml:/etc/drachtio.conf.xml ^
--p 9022:9022/tcp ^
--p 5060:5060/tcp ^
-docker.io/drachtio/drachtio-server
-----
-
-Then `podman exec -ti drachtio-server /bin/bash`
 
 === Running examples
 

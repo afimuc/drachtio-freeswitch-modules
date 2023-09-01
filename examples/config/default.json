@@ -1,11 +1,11 @@
 {
   "drachtio": {
-    "host": "127.0.0.1",
+    "host": "172.28.253.168",
     "port": 9022,
     "secret": "cymru"
   },
   "freeswitch": {
-    "address": "127.0.0.1",
+    "address": "172.28.253.168",
     "port": 8021,
     "secret": "ClueCon"
   },
