@@ -13,9 +13,12 @@ mrf.connect(config.get('freeswitch'))
   .then((ms) => run(ms));
 
 function run(ms) {
+  console.log('Connected to freeswitch')
   srf.invite((req, res) => {
+    console.log('srf.invite')
     ms.connectCaller(req, res)
       .then(({endpoint, dialog}) => {
+        console.log('ms.connectCaller')
         dialog.on('destroy', () => endpoint.destroy());
         doTts(dialog, endpoint);  
       })
@@ -30,7 +33,7 @@ async function doTts(dlg, ep) {
   await ep.speak({
     ttsEngine: 'google_tts',
     voice: 'en-GB-Wavenet-A',
-    text
+    text: 'Hello world!'
   });
   dlg.destroy();
   ep.destroy();
