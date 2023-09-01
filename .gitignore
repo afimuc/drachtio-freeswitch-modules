@@ -37,3 +37,11 @@ node_modules
 *.retry
 .vscode
 stubs/*
+
+**/freeswitch/log
+**/freeswitch/sounds
+**/freeswitch/recordings
+
+.idea/shelf/
+.idea/workspace.xml
+.idea/httpRequests/
